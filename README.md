@@ -5,3 +5,6 @@ This is bc I live alone and I don't want to think all the time what I'm going to
 
 kisses to everyone.
 
+
+
+  ![Alt text](images/furbycanuto.JPG)
