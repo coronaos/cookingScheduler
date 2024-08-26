@@ -18,16 +18,16 @@ meal_labels = ["Lunch", "Dinner"]
 pdf_file = 'schedule_landscape.pdf'
 
 # Create a canvas object in landscape orientation
-c = canvas.Canvas(pdf_file, pagesize=landscape(letter))
-width, height = landscape(letter)
+c = canvas.Canvas(pdf_file, pagesize=[1050,500])
+height, width = pagesize=[3,400]
 
 # Define the size of each block
-block_width = 1.2 * inch
-block_height = 1.2 * inch
+block_width = 1.79 * inch
+block_height = 1.7 * inch
 
 # Define the starting position for the grid, moved down by 2 inches
-x_offset = 1.3 * inch
-y_offset = height - 2 * inch  # Adjusted to fit within the landscape page
+x_offset = 2* inch
+y_offset = 4.5 * inch  # Adjusted to fit within the landscape page
 
 # Draw the header row with the days of the week
 for j, day in enumerate(days_of_week):
@@ -37,7 +37,7 @@ for j, day in enumerate(days_of_week):
     c.setFillColor(colors.lightblue)
     c.rect(x, y, block_width, block_height, fill=1)
     c.setFillColor(colors.black)
-    c.drawString(x + 0.2 * inch, y + 0.4 * inch, day)
+    c.drawString(x + 0.6 * inch, y + 0.5 * inch, day)
 
 # Loop through the data and draw each block with meal labels
 for i, row in enumerate(data):
@@ -48,7 +48,7 @@ for i, row in enumerate(data):
     c.setFillColor(colors.lightgreen)
     c.rect(x_label, y_label, block_width, block_height, fill=1)
     c.setFillColor(colors.black)
-    c.drawString(x_label + 0.2 * inch, y_label + 0.4 * inch, meal_labels[i])
+    c.drawString(x_label + 0.5 * inch, y_label + 1 * inch, meal_labels[i])
 
     for j, cell in enumerate(row):
         # Calculate the position of the current block
@@ -62,7 +62,7 @@ for i, row in enumerate(data):
 
         # Add the text inside the block
         c.setFillColor(colors.black)
-        c.drawString(x + 0.2 * inch, y + 0.4 * inch, cell)
+        c.drawString(x + 0.08 * inch, y + 0.8 * inch, cell)
 
 # Save the PDF
 c.save()
